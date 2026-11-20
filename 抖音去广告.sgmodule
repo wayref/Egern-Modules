@@ -23,15 +23,5 @@ DOMAIN,api-access.pangolin-sdk-toutiao.com,REJECT
 # 埋点上报
 DOMAIN-SUFFIX,log-api.pangolin-sdk-toutiao.com,REJECT
 
-[URL Rewrite]
-# 屏蔽开屏广告接口
-^https://.*\.toutiao\.com/api/ad/ - reject
-^https://.*\.amemv\.com/api/ad/ - reject
-
-[MITM]
-hostname = *.amemv.com
-
-[Script]
-# 过滤信息流广告：删除带广告标识的视频
-http-response ^https://.*\.amemv\.com/aweme/v\d/feed/.* script-path=https://raw.githubusercontent.com/wayref/Egern-Modules/main/scripts/douyin-filter.js, requires-body=true, timeout=10
-http-response ^https://.*\.amemv\.com/aweme/v\d/nearby/feed/.* script-path=https://raw.githubusercontent.com/wayref/Egern-Modules/main/scripts/douyin-filter.js, requires-body=true, timeout=10
+# 注：已移除 MITM 和脚本——抖音接口有证书锁定，MITM 会导致评论区断网
+# 本模块仅用域名规则拦开屏广告和穿山甲 SDK，信息流广告需手动滑过
