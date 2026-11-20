@@ -1,30 +1,30 @@
 #!name=评论区地址修改
-#!desc=仅修改评论区归属地显示，支持哔哩哔哩、微博、知乎、小红书、抖音，改哪个策略就显示哪个地区节点
+#!desc=仅修改评论区归属地显示，支持哔哩哔哩、微博、知乎、小红书、抖音，每个 App 单独开关
 #!author=QT
 #!icon=https://raw.githubusercontent.com/wayref/Egern-Icons/main/Color/GoogleMaps.png
-#!arguments=PROXY:DIRECT
-#!arguments-desc=PROXY:评论接口走哪个策略组，填策略组名（如美国智能优选）或 DIRECT
+#!arguments=Bilibili:DIRECT,Weibo:DIRECT,Zhihu:DIRECT,Xiaohongshu:DIRECT,Douyin:DIRECT
+#!arguments-desc=Bilibili:哔哩哔哩评论走哪个策略组，填策略组名开启（如美国智能优选），填 DIRECT 关闭（默认地址）;Weibo:微博评论走哪个策略组，填策略组名开启，填 DIRECT 关闭;Zhihu:知乎评论走哪个策略组，填策略组名开启，填 DIRECT 关闭;Xiaohongshu:小红书评论走哪个策略组，填策略组名开启，填 DIRECT 关闭;Douyin:抖音评论走哪个策略组，填策略组名开启，填 DIRECT 关闭
 
 [Rule]
 # Bilibili 评论
-URL-REGEX,https://api\.bilibili\.com/x/v\d/reply/add,{{{PROXY}}}
-URL-REGEX,https://api\.bilibili\.com/x/v2/reply/add,{{{PROXY}}}
+URL-REGEX,https://api\.bilibili\.com/x/v\d/reply/add,{{{Bilibili}}}
+URL-REGEX,https://api\.bilibili\.com/x/v2/reply/add,{{{Bilibili}}}
 
 # Weibo 评论/发帖
-URL-REGEX,https://api\.weibo\.cn/\d/comments/(create|reply),{{{PROXY}}}
-URL-REGEX,https://weibo\.com/ajax/comments/create,{{{PROXY}}}
-URL-REGEX,https://api\.weibo\.cn/\d/statuses/send,{{{PROXY}}}
+URL-REGEX,https://api\.weibo\.cn/\d/comments/(create|reply),{{{Weibo}}}
+URL-REGEX,https://weibo\.com/ajax/comments/create,{{{Weibo}}}
+URL-REGEX,https://api\.weibo\.cn/\d/statuses/send,{{{Weibo}}}
 
 # Zhihu 回答/评论
-URL-REGEX,https://api\.zhihu\.com/answers,{{{PROXY}}}
-URL-REGEX,https://api\.zhihu\.com/comment_v\d/answers/\d+/comment,{{{PROXY}}}
+URL-REGEX,https://api\.zhihu\.com/answers,{{{Zhihu}}}
+URL-REGEX,https://api\.zhihu\.com/comment_v\d/answers/\d+/comment,{{{Zhihu}}}
 
 # Xiaohongshu 评论
-DOMAIN,edith.xiaohongshu.com,{{{PROXY}}},extended-matching
+DOMAIN,edith.xiaohongshu.com,{{{Xiaohongshu}}},extended-matching
 
 # Douyin 评论
-DOMAIN-KEYWORD,-core-hl.amemv.com,{{{PROXY}}},extended-matching
-DOMAIN-KEYWORD,-core-lf.amemv.com,{{{PROXY}}},extended-matching
+DOMAIN-KEYWORD,-core-hl.amemv.com,{{{Douyin}}},extended-matching
+DOMAIN-KEYWORD,-core-lf.amemv.com,{{{Douyin}}},extended-matching
 
 [MITM]
 hostname = %APPEND% api.bilibili.com, api.weibo.cn, weibo.com, api.zhihu.com
