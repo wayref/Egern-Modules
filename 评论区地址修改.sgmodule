@@ -1,5 +1,5 @@
 #!name=评论区地址修改
-#!desc=仅修改评论区归属地显示，支持哔哩哔哩、微博、知乎、小红书、抖音，每个 App 单独开关
+#!desc=修改评论区归属地显示，支持哔哩哔哩、微博、知乎、小红书、抖音；每个 App 单独设置，可同时用不同地区节点
 #!author=QT
 #!icon=https://raw.githubusercontent.com/wayref/Egern-Icons/main/Color/GoogleMaps.png
 #!arguments=Bilibili:DIRECT,Weibo:DIRECT,Zhihu:DIRECT,Xiaohongshu:DIRECT,Douyin:DIRECT
