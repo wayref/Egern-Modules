@@ -3,7 +3,7 @@
 #!author=QT
 #!icon=https://raw.githubusercontent.com/wayref/Egern-Icons/main/Color/GoogleMaps.png
 #!arguments=Bilibili:DIRECT,Weibo:DIRECT,Zhihu:DIRECT,Xiaohongshu:DIRECT,Douyin:DIRECT
-#!arguments-desc=Bilibili:哔哩哔哩评论走哪个策略组，填策略组名开启（如美国智能优选），填 DIRECT 关闭（默认地址）;Weibo:微博评论走哪个策略组，填策略组名开启，填 DIRECT 关闭;Zhihu:知乎评论走哪个策略组，填策略组名开启，填 DIRECT 关闭;Xiaohongshu:小红书评论走哪个策略组，填策略组名开启，填 DIRECT 关闭;Douyin:抖音评论走哪个策略组，填策略组名开启，填 DIRECT 关闭
+#!arguments-desc=Bilibili:填策略组名开启，DIRECT 关闭;Weibo:填策略组名开启，DIRECT 关闭;Zhihu:填策略组名开启，DIRECT 关闭;Xiaohongshu:填策略组名开启，DIRECT 关闭;Douyin:填策略组名开启，DIRECT 关闭
 
 [Rule]
 # Bilibili 评论
