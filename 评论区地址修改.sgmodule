@@ -1,5 +1,5 @@
 #!name=评论区地址修改
-#!desc=仅修改评论区归属地显示，改哪个策略就显示哪个地区节点
+#!desc=仅修改评论区归属地显示，支持哔哩哔哩、微博、知乎、小红书、抖音，改哪个策略就显示哪个地区节点
 #!author=QT
 #!icon=https://raw.githubusercontent.com/wayref/Egern-Icons/main/Color/GoogleMaps.png
 #!arguments=PROXY:DIRECT
