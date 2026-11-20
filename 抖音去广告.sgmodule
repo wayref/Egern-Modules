@@ -29,7 +29,7 @@ DOMAIN-SUFFIX,log-api.pangolin-sdk-toutiao.com,REJECT
 ^https://.*\.amemv\.com/api/ad/ - reject
 
 [MITM]
-hostname = *.amemv.com, *.toutiao.com, *.byteimg.com
+hostname = *.amemv.com
 
 [Script]
 # 过滤信息流广告：删除带广告标识的视频
