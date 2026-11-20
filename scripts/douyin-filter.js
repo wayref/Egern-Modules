@@ -13,14 +13,12 @@
         
         let data = JSON.parse(body);
         
-        // 检查单个视频是否为广告
+        // 检查单个视频是否为广告（只认明确的广告标识）
         function isAd(item) {
             if (!item || typeof item !== 'object') return false;
             
-            // 广告标识字段
+            // 只认明确的广告标识，commerce_info 很多正常视频也有，不能算广告
             if (item.is_ad === true) return true;
-            if (item.isAd === true) return true;
-            if (item.ad_info) return true;
             if (item.raw_ad_data) return true;
             
             // aweme 结构
@@ -28,10 +26,6 @@
                 if (item.aweme.is_ad === true) return true;
                 if (item.aweme.raw_ad_data) return true;
             }
-            
-            // 商业推广标识
-            if (item.commerce_info) return true;
-            if (item.promotion_info) return true;
             
             return false;
         }
