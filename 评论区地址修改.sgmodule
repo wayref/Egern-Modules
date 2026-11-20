@@ -1,0 +1,30 @@
+#!name=评论区地址修改
+#!desc=仅修改评论区归属地显示，改哪个策略就显示哪个地区节点
+#!author=QT
+#!icon=https://raw.githubusercontent.com/wayref/Egern-Icons/main/Color/GoogleMaps.png
+#!arguments=PROXY:DIRECT,Bilibili:bilibili,Weibo:weibo,Zhihu:zhihu,Xiaohongshu:xiaohongshu,Douyin:amemv
+#!arguments-desc=PROXY:评论接口走哪个策略组，填策略组名（如美国智能优选）或 DIRECT
+
+[Rule]
+# Bilibili 评论
+URL-REGEX,https://api\.{{{Bilibili}}}\.com/x/v\d/reply/add,{{{PROXY}}}
+URL-REGEX,https://api\.{{{Bilibili}}}\.com/x/v2/reply/add,{{{PROXY}}}
+
+# Weibo 评论/发帖
+URL-REGEX,https://api\.{{{Weibo}}}\.cn/\d/comments/(create|reply),{{{PROXY}}}
+URL-REGEX,https://{{{Weibo}}}\.com/ajax/comments/create,{{{PROXY}}}
+URL-REGEX,https://api\.{{{Weibo}}}\.cn/\d/statuses/send,{{{PROXY}}}
+
+# Zhihu 回答/评论
+URL-REGEX,https://api\.{{{Zhihu}}}\.com/answers,{{{PROXY}}}
+URL-REGEX,https://api\.{{{Zhihu}}}\.com/comment_v\d/answers/\d+/comment,{{{PROXY}}}
+
+# Xiaohongshu 评论
+DOMAIN,edith.{{{Xiaohongshu}}}.com,{{{PROXY}}},extended-matching
+
+# Douyin 评论
+DOMAIN-KEYWORD,-core-hl.{{{Douyin}}}.com,{{{PROXY}}},extended-matching
+DOMAIN-KEYWORD,-core-lf.{{{Douyin}}}.com,{{{PROXY}}},extended-matching
+
+[MITM]
+hostname = %APPEND% api.{{{Bilibili}}}.com, api.{{{Weibo}}}.cn, {{{Weibo}}}.com, api.{{{Zhihu}}}.com
