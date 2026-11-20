@@ -9,22 +9,27 @@
 # Bilibili 评论
 URL-REGEX,https://api\.bilibili\.com/x/v\d/reply/add,{{{Bilibili}}}
 URL-REGEX,https://api\.bilibili\.com/x/v2/reply/add,{{{Bilibili}}}
+URL-REGEX,https://api\.bilibili\.com/x/v\d/reply/reply,{{{Bilibili}}}
 
 # Weibo 评论/发帖
 URL-REGEX,https://api\.weibo\.cn/\d/comments/(create|reply),{{{Weibo}}}
 URL-REGEX,https://weibo\.com/ajax/comments/create,{{{Weibo}}}
 URL-REGEX,https://api\.weibo\.cn/\d/statuses/send,{{{Weibo}}}
+URL-REGEX,https://api\.weibo\.cn/\d/comments/show,{{{Weibo}}}
 
 # Zhihu 回答/评论
 URL-REGEX,https://api\.zhihu\.com/answers,{{{Zhihu}}}
 URL-REGEX,https://api\.zhihu\.com/comment_v\d/answers/\d+/comment,{{{Zhihu}}}
+URL-REGEX,https://www\.zhihu\.com/api/v\d/comment,{{{Zhihu}}}
 
 # Xiaohongshu 评论
 DOMAIN,edith.xiaohongshu.com,{{{Xiaohongshu}}},extended-matching
 
 # Douyin 评论
+URL-REGEX,https://api\.amemv\.com/aweme/v\d/comment/,{{{Douyin}}}
+URL-REGEX,https://aweme\.snssdk\.com/aweme/v\d/comment/,{{{Douyin}}}
 DOMAIN-KEYWORD,-core-hl.amemv.com,{{{Douyin}}},extended-matching
 DOMAIN-KEYWORD,-core-lf.amemv.com,{{{Douyin}}},extended-matching
 
 [MITM]
-hostname = %APPEND% api.bilibili.com, api.weibo.cn, weibo.com, api.zhihu.com
+hostname = %APPEND% api.bilibili.com, api.weibo.cn, weibo.com, api.zhihu.com, api.amemv.com, aweme.snssdk.com
